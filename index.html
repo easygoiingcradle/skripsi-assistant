@@ -198,7 +198,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
-        <h1 class="font-bold text-lg text-dark-900">CHARACE</h1>
+        <h1 class="font-bold text-lg text-dark-900">ZIKRY</h1>
         <div class="w-10"></div>
     </div>
 
@@ -612,6 +612,11 @@
 
         // Find Hot Topics - Manual Input Support
         function findHotTopics() {
+            // Clear previous results at the very beginning
+            const section = document.getElementById('hot-topics-section');
+            const list = document.getElementById('hot-topics-list');
+            list.innerHTML = '';
+            
             // Get selected major from #fieldOfStudy (Thesis Generator dropdown)
             const fieldOfStudy = document.getElementById('fieldOfStudy').value;
             const selectedMajor = prodiMapping[fieldOfStudy] || 'Teknologi Informasi';
@@ -657,10 +662,6 @@
             matchingGaps = [...new Set(matchingGaps)].slice(0, 6);
 
             // Display results
-            const section = document.getElementById('hot-topics-section');
-            const list = document.getElementById('hot-topics-list');
-            list.innerHTML = '';
-
             matchingGaps.forEach((topic, index) => {
                 const div = document.createElement('div');
                 div.className = 'hot-topic-card bg-gradient-to-br from-primary-50 to-orange-50 rounded-xl p-4 border border-primary-100';
@@ -1067,4 +1068,3 @@
 
 </body>
 </html>
-
